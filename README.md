@@ -1,3 +1,3 @@
-# test2
+#  bloc_test_etdd_example
 
-A new Flutter project.
+Simple example of BLoC testing on Ensure Test Drive Design
