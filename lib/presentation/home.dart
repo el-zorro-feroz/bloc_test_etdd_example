@@ -17,7 +17,10 @@ class HomePage extends StatelessWidget {
               return const InitialHomeWidget();
             case DataCounterState():
               final DataCounterState state0 = state;
-              return DataHomeWidget(count: state0.count);
+              return DataHomeWidget(
+                count: state0.count,
+                onTap: () => services<CounterBloc>().add(TapCounterEvent()),
+              );
           }
         },
       ),
@@ -52,13 +55,16 @@ class DataHomeWidget extends StatelessWidget {
       children: [
         Expanded(
           child: Center(
-            child: Text(count as String),
+            child: Text(count.toString()),
           ),
         ),
-        TextButton(
-          onPressed: onTap,
-          child: const Text(
-            'Click',
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: TextButton(
+            onPressed: onTap,
+            child: const Text(
+              'Click',
+            ),
           ),
         ),
       ],
