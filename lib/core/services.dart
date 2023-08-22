@@ -11,8 +11,11 @@ final GetIt services = GetIt.I;
 
 FutureOr<void> initServices() async {
   services.registerLazySingleton<HomePage>(() => const HomePage());
-  services.registerLazySingleton<CounterBloc>(() => CounterBloc());
+
+  services.registerLazySingleton<CounterBloc>(() => CounterBloc()..add(InitCounterEvent()));
+
   services.registerLazySingleton<Repository>(() => Repository());
+
   services.registerLazySingleton<AddUseCase>(() => AddUseCase());
   services.registerLazySingleton<GetUseCase>(() => GetUseCase());
 }
